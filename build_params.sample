@@ -1,0 +1,5 @@
+RHB_BASE="2019-07-10-raspbian-buster-lite.img"
+RHB_GITHUBUSER=bryanalves
+RHB_HOSTNAME=rhbbuild01
+RHB_SSID=mywifi
+RHB_PSK=password123

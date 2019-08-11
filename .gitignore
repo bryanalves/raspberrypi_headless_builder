@@ -1,0 +1,3 @@
+out/*.img
+bases/*.img
+build_params
