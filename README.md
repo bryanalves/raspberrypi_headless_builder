@@ -15,6 +15,8 @@ The script expects an existing raspian image to exist in the `bases` directory. 
 
 The script expects the following environment variables:
 
+| Variable         | Description                            |
+|------------------|----------------------------------------|
 | `RHB_BASE`       | Filename to use from `bases` directory |
 | `RHB_GITHUBUSER` | Github user name to grab SSH keys for  |
 | `RHB_HOSTNAME`   | Hostname to give machine               |
