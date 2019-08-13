@@ -63,7 +63,7 @@ RHB_SSID=$RHB_SSID RHB_PSK=$RHB_PSK envsubst < templates/wpa_supplicant.conf.tmp
 sudo umount $MNTBASE
 
 # Do things to root partition
-sudo mount -o loop,offset=$(($mountrootstart * 512)) bases/$RHB_BASE $MNTBASE/
+sudo mount -o loop,offset=$(($mountrootstart * 512)) out/build.img $MNTBASE/
 
 ## Disable password login
 sudo sed -ie s/#PasswordAuthentication\ yes/PasswordAuthentication\ no/g $MNTBASE/etc/ssh/sshd_config
