@@ -69,11 +69,16 @@ sudo mount -o loop,offset=$(($mountrootstart * 512)) out/build.img $MNTBASE/
 sudo sed -ie s/#PasswordAuthentication\ yes/PasswordAuthentication\ no/g $MNTBASE/etc/ssh/sshd_config
 
 ## Set up ssh keys
+uid=$(stat -c %u $MNTBASE/home/pi)
+gid=$(stat -c %g $MNTBASE/home/pi)
+
 sudo mkdir -p $MNTBASE/home/pi/.ssh/
 sudo chmod 700 $MNTBASE/home/pi/.ssh
+sudo chown $uid:$gid $MNTBASE/home/pi/.ssh
 
 curl https://github.com/$RHB_GITHUBUSER.keys | sudo tee $MNTBASE/home/pi/.ssh/authorized_keys > /dev/null
 sudo chmod 600 $MNTBASE/home/pi/.ssh/authorized_keys
+sudo chown $uid:$gid $MNTBASE/home/pi/.ssh/authorized_keys
 
 ## Set up hostname
 sudo sed -ie s/raspberrypi/$RHB_HOSTNAME/g $MNTBASE/etc/hostname
